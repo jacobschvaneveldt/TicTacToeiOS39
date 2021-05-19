@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qIo-1w-blq">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -39,7 +39,7 @@
                                             <constraint firstAttribute="width" constant="131" id="Knw-YL-2JM"/>
                                             <constraint firstAttribute="width" secondItem="4Bz-HG-fwz" secondAttribute="height" multiplier="1:1" id="ZLw-H0-xha"/>
                                         </constraints>
-                                        <state key="normal" title="B1"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <action selector="B1ButtonTapped:" destination="qIo-1w-blq" eventType="touchUpInside" id="ynz-CF-weY"/>
                                         </connections>
@@ -51,7 +51,6 @@
                                             <constraint firstAttribute="width" constant="131" id="Ylf-dG-UBm"/>
                                             <constraint firstAttribute="height" constant="131" id="ZyA-Od-Gfg"/>
                                         </constraints>
-                                        <state key="normal" title="B2"/>
                                         <connections>
                                             <action selector="B2ButtonTapped:" destination="qIo-1w-blq" eventType="touchUpInside" id="z52-Mq-vhC"/>
                                         </connections>
@@ -63,7 +62,6 @@
                                             <constraint firstAttribute="width" secondItem="udH-37-gXs" secondAttribute="height" multiplier="1:1" id="iWN-Yu-e9s"/>
                                             <constraint firstAttribute="height" constant="131" id="uJF-Rb-SDh"/>
                                         </constraints>
-                                        <state key="normal" title="B3"/>
                                         <connections>
                                             <action selector="B3ButtonTapped:" destination="qIo-1w-blq" eventType="touchUpInside" id="hiE-mQ-Qwk"/>
                                         </connections>
@@ -85,7 +83,6 @@
                                             <constraint firstAttribute="width" secondItem="eCM-vQ-TtZ" secondAttribute="height" multiplier="1:1" id="PWw-q3-6nr"/>
                                             <constraint firstAttribute="width" constant="131" id="Wtq-wM-imn"/>
                                         </constraints>
-                                        <state key="normal" title="B4"/>
                                         <connections>
                                             <action selector="B4ButtonTapped:" destination="qIo-1w-blq" eventType="touchUpInside" id="YDN-uf-xjr"/>
                                         </connections>
@@ -97,7 +94,6 @@
                                             <constraint firstAttribute="width" secondItem="zl3-9z-f05" secondAttribute="height" multiplier="1:1" id="bx0-FH-Wua"/>
                                             <constraint firstAttribute="height" constant="131" id="guq-Qt-h0f"/>
                                         </constraints>
-                                        <state key="normal" title="B5"/>
                                         <connections>
                                             <action selector="B5ButtonTapped:" destination="qIo-1w-blq" eventType="touchUpInside" id="Scn-O6-DTU"/>
                                         </connections>
@@ -109,7 +105,6 @@
                                             <constraint firstAttribute="width" constant="131" id="jUj-Rc-hdJ"/>
                                             <constraint firstAttribute="width" secondItem="VXw-cd-NYz" secondAttribute="height" multiplier="1:1" id="zBy-gC-hxL"/>
                                         </constraints>
-                                        <state key="normal" title="B6"/>
                                         <connections>
                                             <action selector="B6ButtonTapped:" destination="qIo-1w-blq" eventType="touchUpInside" id="nfa-EP-LyU"/>
                                         </connections>
@@ -137,7 +132,6 @@
                                             <constraint firstAttribute="width" constant="131" id="jE3-0z-j8R"/>
                                             <constraint firstAttribute="width" secondItem="rjC-DE-VTY" secondAttribute="height" multiplier="1:1" id="zW8-Ub-26X"/>
                                         </constraints>
-                                        <state key="normal" title="B7"/>
                                         <connections>
                                             <action selector="B7ButtonTapped:" destination="qIo-1w-blq" eventType="touchUpInside" id="l3v-Bh-ghk"/>
                                         </connections>
@@ -150,7 +144,6 @@
                                             <constraint firstAttribute="width" secondItem="u2j-70-b7p" secondAttribute="height" multiplier="1:1" id="Skk-K4-ZfG"/>
                                             <constraint firstAttribute="width" constant="131" id="Tte-4d-8gR"/>
                                         </constraints>
-                                        <state key="normal" title="B8"/>
                                         <connections>
                                             <action selector="B8ButtonTapped:" destination="qIo-1w-blq" eventType="touchUpInside" id="Bzb-YU-XMn"/>
                                         </connections>
@@ -163,7 +156,6 @@
                                             <constraint firstAttribute="width" secondItem="KQs-nm-8kp" secondAttribute="height" multiplier="1:1" id="gRE-ll-kCf"/>
                                             <constraint firstAttribute="width" constant="131" id="gri-LO-5ZI"/>
                                         </constraints>
-                                        <state key="normal" title="B9"/>
                                         <connections>
                                             <action selector="B9ButtonTapped:" destination="qIo-1w-blq" eventType="touchUpInside" id="eBj-b4-3ue"/>
                                         </connections>
