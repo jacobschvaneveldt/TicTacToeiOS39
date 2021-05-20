@@ -92,7 +92,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="1" green="0.92708009709003458" blue="0.67613489687538553" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="Bachground"/>
                         <color key="tintColor" systemColor="labelColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="yqX-XJ-ZrS"/>
@@ -139,6 +139,9 @@
         <image name="#" width="448" height="404"/>
         <image name="o" width="512" height="512"/>
         <image name="x" width="512" height="512"/>
+        <namedColor name="Bachground">
+            <color red="1" green="0.90588235294117647" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="Color">
             <color red="0.60392156862745094" green="0.32549019607843138" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

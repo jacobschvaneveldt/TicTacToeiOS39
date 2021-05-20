@@ -21,12 +21,13 @@ class GameViewController: UIViewController {
     @IBOutlet weak var B8Button: UIButton!
     @IBOutlet weak var B9Button: UIButton!
     @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var yourTurnImageView: UIImageView!
     
     
     //MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        var buttons: [UIButton] = [B1Button, B2Button, B3Button, B4Button, B5Button, B6Button, B7Button, B8Button, B9Button]
+        yourTurnImageView.image = #imageLiteral(resourceName: "TTTX")
     }
     
     //MARK: - PROPERTIES
@@ -199,7 +200,7 @@ class GameViewController: UIViewController {
         self.firstRow = ["", "", ""]
         self.secondRow = ["", "", ""]
         self.thirdRow = ["", "", ""]
-        
+        yourTurnImageView.image = #imageLiteral(resourceName: "TTTX")
         self.B1Button.setImage(nil, for: .normal)
         self.B2Button.setImage(nil, for: .normal)
         self.B3Button.setImage(nil, for: .normal)
@@ -220,9 +221,6 @@ class GameViewController: UIViewController {
     
     func checkForWinConditions(piece: String) {
         
-        if B1Button.currentImage != nil, B2Button.currentImage != nil, B3Button.currentImage != nil, B4Button.currentImage != nil, B5Button.currentImage != nil, B6Button.currentImage != nil, B7Button.currentImage != nil, B8Button.currentImage != nil, B9Button.currentImage != nil {
-            presentStalemateAlertController()
-        }
         
         switch piece {
         
@@ -250,7 +248,10 @@ class GameViewController: UIViewController {
             }
             if firstRow[2] == piece, secondRow[1] == piece, thirdRow[0] == piece {
                 presentWinAlertController(piece: piece)
-            }
+            } else if B1Button.currentImage != nil, B2Button.currentImage != nil, B3Button.currentImage != nil, B4Button.currentImage != nil, B5Button.currentImage != nil, B6Button.currentImage != nil, B7Button.currentImage != nil, B8Button.currentImage != nil, B9Button.currentImage != nil {
+                    presentStalemateAlertController()
+                }
+            
         case "o":
             if firstRow[0] == piece, firstRow[1] == piece, firstRow[2] == piece {
                 presentWinAlertController(piece: piece)
@@ -275,6 +276,8 @@ class GameViewController: UIViewController {
             }
             if firstRow[2] == piece, secondRow[1] == piece, thirdRow[0] == piece {
                 presentWinAlertController(piece: piece)
+            } else if B1Button.currentImage != nil, B2Button.currentImage != nil, B3Button.currentImage != nil, B4Button.currentImage != nil, B5Button.currentImage != nil, B6Button.currentImage != nil, B7Button.currentImage != nil, B8Button.currentImage != nil, B9Button.currentImage != nil {
+                presentStalemateAlertController()
             }
         default:
             fatalError()
@@ -282,6 +285,7 @@ class GameViewController: UIViewController {
     }
     
     func addPieceToArray(piece: String, index: Int) {
+        switchYourTurnImage()
         if isfirstRow {
             firstRow.insert(piece, at: index)
             firstRow.remove(at: index + 1)
@@ -303,11 +307,15 @@ class GameViewController: UIViewController {
         let isPieceX: Bool = piece == "x"
         let alertController = UIAlertController(title: isPieceX ? "Congrats! X Won the Game!" : "Congrats! O Won the Game!", message: nil, preferredStyle: .alert)
         
+        let TitleString = NSAttributedString(string: alertController.title ?? "", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor : UIColor(named: "Bachground")])
+        alertController.setValue(TitleString, forKey: "attributedTitle")
+        
+        
         let playAgainAction = UIAlertAction(title: "Play Again", style: .default) { _ in
             self.firstRow = ["", "", ""]
             self.secondRow = ["", "", ""]
             self.thirdRow = ["", "", ""]
-            
+            self.yourTurnImageView.image = #imageLiteral(resourceName: "TTTX")
             self.B1Button.setImage(nil, for: .normal)
             self.B2Button.setImage(nil, for: .normal)
             self.B3Button.setImage(nil, for: .normal)
@@ -325,8 +333,14 @@ class GameViewController: UIViewController {
             self.secondRow = ["", "", ""]
             self.thirdRow = ["", "", ""]
             
+            
+            
             self.navigationController?.popViewController(animated: true)
         }
+        
+        alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(named: "Color-3")
+        alertController.view.tintColor = UIColor(named: "Color-2")
+        alertController.view.layer.cornerRadius = 20
         alertController.addAction(playAgainAction)
         alertController.addAction(quitAction)
         present(alertController, animated: true, completion: nil)
@@ -335,11 +349,14 @@ class GameViewController: UIViewController {
     func presentStalemateAlertController() {
         let alertController = UIAlertController(title: "DRAW!", message: nil, preferredStyle: .alert)
         
+        let TitleString = NSAttributedString(string: alertController.title ?? "", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor : UIColor(named: "Bachground")])
+        alertController.setValue(TitleString, forKey: "attributedTitle")
+        
         let playAgainAction = UIAlertAction(title: "Play Again", style: .default) { _ in
             self.firstRow = ["", "", ""]
             self.secondRow = ["", "", ""]
             self.thirdRow = ["", "", ""]
-            
+            self.yourTurnImageView.image = #imageLiteral(resourceName: "TTTX")
             self.B1Button.setImage(nil, for: .normal)
             self.B2Button.setImage(nil, for: .normal)
             self.B3Button.setImage(nil, for: .normal)
@@ -360,8 +377,20 @@ class GameViewController: UIViewController {
             
             self.navigationController?.popViewController(animated: true)
         }
+        
+        alertController.view.subviews.first?.subviews.first?.subviews.first?.backgroundColor = UIColor(named: "Color-3")
+        alertController.view.tintColor = UIColor(named: "Color-2")
+        alertController.view.layer.cornerRadius = 20
         alertController.addAction(playAgainAction)
         alertController.addAction(quitAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    func switchYourTurnImage() {
+        if isTurnToMoveForX == false {
+            yourTurnImageView.image = #imageLiteral(resourceName: "x")
+        } else {
+            yourTurnImageView.image = #imageLiteral(resourceName: "o")
+        }
     }
 }//End of class
