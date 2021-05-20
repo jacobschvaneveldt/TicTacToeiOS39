@@ -43,6 +43,7 @@ class GameViewController: UIViewController {
     
     //MARK: - ACTIONS
     @IBAction func B1ButtonTapped(_ sender: Any) {
+        guard B1Button.currentImage == nil else {return}
         isfirstRow.toggle()
         if isTurnToMoveForX {
             B1Button.setImage(#imageLiteral(resourceName: "TTTX"), for: .normal)
@@ -59,6 +60,7 @@ class GameViewController: UIViewController {
         }
     }
     @IBAction func B2ButtonTapped(_ sender: Any) {
+        guard B2Button.currentImage == nil else {return}
         isfirstRow.toggle()
         if isTurnToMoveForX {
             B2Button.setImage(#imageLiteral(resourceName: "TTTX"), for: .normal)
@@ -75,6 +77,7 @@ class GameViewController: UIViewController {
         }
     }
     @IBAction func B3ButtonTapped(_ sender: Any) {
+        guard B3Button.currentImage == nil else {return}
         isfirstRow.toggle()
         if isTurnToMoveForX {
             B3Button.setImage(#imageLiteral(resourceName: "TTTX"), for: .normal)
@@ -91,6 +94,7 @@ class GameViewController: UIViewController {
         }
     }
     @IBAction func B4ButtonTapped(_ sender: Any) {
+        guard B4Button.currentImage == nil else {return}
         isSecondRow.toggle()
         if isTurnToMoveForX {
             B4Button.setImage(#imageLiteral(resourceName: "TTTX"), for: .normal)
@@ -107,6 +111,7 @@ class GameViewController: UIViewController {
         }
     }
     @IBAction func B5ButtonTapped(_ sender: Any) {
+        guard B5Button.currentImage == nil else {return}
         isSecondRow.toggle()
         if isTurnToMoveForX {
             B5Button.setImage(#imageLiteral(resourceName: "TTTX"), for: .normal)
@@ -123,6 +128,7 @@ class GameViewController: UIViewController {
         }
     }
     @IBAction func B6ButtonTapped(_ sender: Any) {
+        guard B6Button.currentImage == nil else {return}
         isSecondRow.toggle()
         if isTurnToMoveForX {
             B6Button.setImage(#imageLiteral(resourceName: "TTTX"), for: .normal)
@@ -139,6 +145,7 @@ class GameViewController: UIViewController {
         }
     }
     @IBAction func B7ButtonTapped(_ sender: Any) {
+        guard B7Button.currentImage == nil else {return}
         isThirdRow.toggle()
         if isTurnToMoveForX {
             B7Button.setImage(#imageLiteral(resourceName: "TTTX"), for: .normal)
@@ -155,6 +162,7 @@ class GameViewController: UIViewController {
         }
     }
     @IBAction func B8ButtonTapped(_ sender: Any) {
+        guard B8Button.currentImage == nil else {return}
         isThirdRow.toggle()
         if isTurnToMoveForX {
             B8Button.setImage(#imageLiteral(resourceName: "TTTX"), for: .normal)
@@ -171,6 +179,7 @@ class GameViewController: UIViewController {
         }
     }
     @IBAction func B9ButtonTapped(_ sender: Any) {
+        guard B9Button.currentImage == nil else {return}
         isThirdRow.toggle()
         if isTurnToMoveForX {
             B9Button.setImage(#imageLiteral(resourceName: "TTTX"), for: .normal)
@@ -187,46 +196,57 @@ class GameViewController: UIViewController {
         }
     }
     @IBAction func resetButtonTapped(_ sender: Any) {
+        self.firstRow = ["", "", ""]
+        self.secondRow = ["", "", ""]
+        self.thirdRow = ["", "", ""]
         
+        self.B1Button.setImage(nil, for: .normal)
+        self.B2Button.setImage(nil, for: .normal)
+        self.B3Button.setImage(nil, for: .normal)
+        self.B4Button.setImage(nil, for: .normal)
+        self.B5Button.setImage(nil, for: .normal)
+        self.B6Button.setImage(nil, for: .normal)
+        self.B7Button.setImage(nil, for: .normal)
+        self.B8Button.setImage(nil, for: .normal)
+        self.B9Button.setImage(nil, for: .normal)
+        
+        self.isTurnToMoveForX = true
     }
     
     //MARK: - Functions
     
     func checkForWinConditions(piece: String) {
+        
+        if B1Button.currentImage != nil, B2Button.currentImage != nil, B3Button.currentImage != nil, B4Button.currentImage != nil, B5Button.currentImage != nil, B6Button.currentImage != nil, B7Button.currentImage != nil, B8Button.currentImage != nil, B9Button.currentImage != nil {
+            presentStalemateAlertController()
+        }
+        
         switch piece {
         
         case "x":
             if firstRow[0] == piece, firstRow[1] == piece, firstRow[2] == piece {
-                presentWinAlertController(piece: piece)
+            presentWinAlertController(piece: piece)
             }
             if secondRow[0] == piece, secondRow[1] == piece, secondRow[2] == piece {
                 presentWinAlertController(piece: piece)
-                
             }
             if thirdRow[0] == piece, thirdRow[1] == piece, thirdRow[2] == piece {
                 presentWinAlertController(piece: piece)
-                
             }
             if firstRow[0] == piece, secondRow[0] == piece, thirdRow[0] == piece {
                 presentWinAlertController(piece: piece)
-                
             }
             if firstRow[1] == piece, secondRow[1] == piece, thirdRow[1] == piece {
                 presentWinAlertController(piece: piece)
-                
             }
             if firstRow[2] == piece, secondRow[2] == piece, thirdRow[2] == piece {
                 presentWinAlertController(piece: piece)
-                
             }
-            
             if firstRow[0] == piece, secondRow[1] == piece, thirdRow[2] == piece {
                 presentWinAlertController(piece: piece)
-                
             }
             if firstRow[2] == piece, secondRow[1] == piece, thirdRow[0] == piece {
                 presentWinAlertController(piece: piece)
-                
             }
         case "o":
             if firstRow[0] == piece, firstRow[1] == piece, firstRow[2] == piece {
@@ -234,32 +254,24 @@ class GameViewController: UIViewController {
             }
             if secondRow[0] == piece, secondRow[1] == piece, secondRow[2] == piece {
                 presentWinAlertController(piece: piece)
-                
             }
             if thirdRow[0] == piece, thirdRow[1] == piece, thirdRow[2] == piece {
                 presentWinAlertController(piece: piece)
-                
             }
             if firstRow[0] == piece, secondRow[0] == piece, thirdRow[0] == piece {
                 presentWinAlertController(piece: piece)
-                
             }
             if firstRow[1] == piece, secondRow[1] == piece, thirdRow[1] == piece {
                 presentWinAlertController(piece: piece)
-                
             }
             if firstRow[2] == piece, secondRow[2] == piece, thirdRow[2] == piece {
                 presentWinAlertController(piece: piece)
-                
             }
-            
             if firstRow[0] == piece, secondRow[1] == piece, thirdRow[2] == piece {
                 presentWinAlertController(piece: piece)
-                
             }
             if firstRow[2] == piece, secondRow[1] == piece, thirdRow[0] == piece {
                 presentWinAlertController(piece: piece)
-                
             }
         default:
             fatalError()
@@ -304,7 +316,6 @@ class GameViewController: UIViewController {
             self.B9Button.setImage(nil, for: .normal)
             
             self.isTurnToMoveForX = true
-            
         }
         let quitAction = UIAlertAction(title: "Quit", style: .cancel) { _ in
             self.firstRow = ["", "", ""]
@@ -318,7 +329,36 @@ class GameViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    
-    
-    
+    func presentStalemateAlertController() {
+        let alertController = UIAlertController(title: "DRAW!", message: nil, preferredStyle: .alert)
+        
+        let playAgainAction = UIAlertAction(title: "Play Again", style: .default) { _ in
+            self.firstRow = ["", "", ""]
+            self.secondRow = ["", "", ""]
+            self.thirdRow = ["", "", ""]
+            
+            self.B1Button.setImage(nil, for: .normal)
+            self.B2Button.setImage(nil, for: .normal)
+            self.B3Button.setImage(nil, for: .normal)
+            self.B4Button.setImage(nil, for: .normal)
+            self.B5Button.setImage(nil, for: .normal)
+            self.B6Button.setImage(nil, for: .normal)
+            self.B7Button.setImage(nil, for: .normal)
+            self.B8Button.setImage(nil, for: .normal)
+            self.B9Button.setImage(nil, for: .normal)
+            
+            self.isTurnToMoveForX = true
+        }
+        
+        let quitAction = UIAlertAction(title: "Quit", style: .cancel) { _ in
+            self.firstRow = ["", "", ""]
+            self.secondRow = ["", "", ""]
+            self.thirdRow = ["", "", ""]
+            
+            self.navigationController?.popViewController(animated: true)
+        }
+        alertController.addAction(playAgainAction)
+        alertController.addAction(quitAction)
+        present(alertController, animated: true, completion: nil)
+    }
 }//End of class
