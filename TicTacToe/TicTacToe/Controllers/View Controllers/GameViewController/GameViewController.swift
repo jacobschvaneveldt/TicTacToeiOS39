@@ -212,6 +212,9 @@ class GameViewController: UIViewController {
         
         self.isTurnToMoveForX = true
     }
+    @IBAction func exitButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
     
     //MARK: - Functions
     
